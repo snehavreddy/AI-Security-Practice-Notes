@@ -1,0 +1,44 @@
+Langchain Docs Link - https://docs.langchain.com/oss/python/langchain/overview
+
+------------------------------------------------------------------------------------------------------------------------------------
+CREATING VIRTUAL ENVIRONMENT using uv
+------------------------------------------------------------------------------------------------------------------------------------
+
+Install uv package manager for windows
+- Nav -> https://docs.astral.sh/uv/getting-started/installation/
+- Run this command in powershell -> powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+Creating Virtual Environment with uv -> run following commands in current project directory
+- uv init -> initializes uv in the current project directory
+- uv venv -> creates virtual environment
+- .venv/Scripts/activate -> activates virtual environment
+
+------------------------------------------------------------------------------------------------------------------------------------
+INSTALLING LIBRARIES
+------------------------------------------------------------------------------------------------------------------------------------
+tracking versions is easy with uv
+- create requirements.txt file in project directory
+- list all libraries to install
+- run this in cmd -> uv add -r requirements.txt
+- verify pyproject.toml file -> dependencies section -> to understand the libraries installed with their versions.
+
+Adding libraries using uv -> run this in cmd -> uv add <library-name>
+Eg. uv add ipykernel -> Installs ipykernel library and adds it to pyproject.toml file.
+
+------------------------------------------------------------------------------------------------------------------------------------
+CREATE API KEYS
+------------------------------------------------------------------------------------------------------------------------------------
+
+Google Gemini:
+    - url -> https://aistudio.google.com/app/apikey
+    - Create a Key -> Copy API Key and do not share with anyone.
+    - GOOGLE_API_KEY -> <API_KEY>
+Groq:
+    - url -> https://console.groq.com/keys
+    - Create a Key -> Copy API Key and do not share with anyone.
+    - GROQ_API_KEY -> <API_KEY>
+
+Once APIs are available, create .env file in project directory and store them.
+Make sure GIT doesn't track .env file -> add .env to .gitignore file.
+
+
