@@ -1,0 +1,35 @@
+Practice - langchain-practice\3-Streaming-and-batch-with-langchain.ipynb
+
+------------------------------------------------------------------------------------------------------------------------------------
+STREAMING 
+------------------------------------------------------------------------------------------------------------------------------------
+-> Displaying output progressively instead of waiting for full output to be generated for better user experience.
+-> LLM generates output in chunks (token by token). We can tap into this stream of tokens and display them as they arrive.
+
+
+- Snippet:
+# Using stream()
+for chunk in model.stream("Write me a 200 words paragraph on Ariticial Intelligence"):
+    print(chunk.text, end="", flush=True)
+
+------------------------------------------------------------------------------------------------------------------------------------
+BATCH
+------------------------------------------------------------------------------------------------------------------------------------
+Batch processing - Processing multiple inputs at once.
+- More efficient than sequential processing.
+
+- Batching a collection of independent requests to a model can significantly improve performance and reduce costs, as the processing can be done in parallel:
+
+- Snippet:
+# Using batch() -> Optional config param -> to limit no. of parallel calls.
+responses = model.batch([
+    "Why do parrots have colorful feathers?",
+    "How do airplanes fly?",
+    "What is quantum computing?"
+],
+config={
+    'max_concurrency': 5, # Limit to 5 prallel calls
+})
+for response in responses:
+    print(response)
+    
