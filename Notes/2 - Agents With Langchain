@@ -1,0 +1,24 @@
+------------------------------------------------------------------------------------------------------------------------------------
+AGENTS
+------------------------------------------------------------------------------------------------------------------------------------
+There are many open-source LLMs (large Language Models) -> OpenAI, Gemini, Groq etc.
+
+
+i/p ---> LLM ---> o/p => Simple GenAI application flow.
+
+
+But LLM can't provide current information/ recent info due to cut-off training data. 
+Hence it needs to rely on some third party tool to get current info. 
+Ex: Current stock price, weather info etc.
+
+
+i/p ---> LLM ---> Tool (which returns context back to LLM) ---> LLM ---> o/p => Basic Agent Architecture.
+
+Langchain made easy to build an Agent. Before this, we were using ReAct Architecture.
+
+Practice -> langchain-practice\1-langchainintro.ipynb
+
+How does the LLM know which tool to call for which user query? The doc-string and name of the tool is sent to the LLM along with the user query. LLM reads them and decides which tool to call.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
